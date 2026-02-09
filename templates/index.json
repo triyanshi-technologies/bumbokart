@@ -245,7 +245,6 @@
           "type": "category",
           "settings": {
             "collection": "craft-supplies",
-            "custom_image": "shopify://shop_images/craft_supplies.jpg",
             "title": "Craft Supplies",
             "promo": "Shop now",
             "tile_shape": "normal"
