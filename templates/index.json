@@ -279,7 +279,7 @@
         "section_padding": 12,
         "grid_gap": 6,
         "tile_padding_mobile": 8,
-        "title_font_size_mobile": 12,
+        "title_font_size_mobile": 13,
         "title_color_mobile": "#121212",
         "promo_font_size_mobile": 12,
         "promo_color_mobile": "#666666",
