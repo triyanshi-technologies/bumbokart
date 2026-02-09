@@ -179,7 +179,6 @@
           "type": "category",
           "settings": {
             "collection": "all-pens",
-            "custom_image": "shopify://shop_images/pens.png",
             "title": "Pens",
             "promo": "Shop now",
             "tile_shape": "normal"
@@ -189,7 +188,6 @@
           "type": "category",
           "settings": {
             "collection": "all-pencils",
-            "custom_image": "shopify://shop_images/pencils.png",
             "title": "Pencils",
             "promo": "Shop now",
             "tile_shape": "wide"
@@ -199,7 +197,6 @@
           "type": "category",
           "settings": {
             "collection": "cases-pouches",
-            "custom_image": "shopify://shop_images/cases_pouches.png",
             "title": "Cases & Pouches",
             "promo": "Shop now",
             "tile_shape": "tall"
@@ -209,7 +206,6 @@
           "type": "category",
           "settings": {
             "collection": "all-highlighters",
-            "custom_image": "shopify://shop_images/highlighters.png",
             "title": "Highlighters",
             "promo": "Shop now",
             "tile_shape": "normal"
@@ -226,7 +222,6 @@
           "type": "category",
           "settings": {
             "collection": "memo-sticky-notes",
-            "custom_image": "shopify://shop_images/sticky-notes.png",
             "title": "sticky Notes",
             "promo": "Shop now",
             "tile_shape": "normal"
@@ -236,7 +231,6 @@
           "type": "category",
           "settings": {
             "collection": "paper",
-            "custom_image": "shopify://shop_images/papers.png",
             "title": "Papers",
             "promo": "Shop now",
             "tile_shape": "wide"
@@ -246,7 +240,6 @@
           "type": "category",
           "settings": {
             "collection": "craft-supplies",
-            "custom_image": "shopify://shop_images/craft_supplies.jpg",
             "title": "Craft Supplies",
             "promo": "Shop now",
             "tile_shape": "normal"
@@ -256,7 +249,6 @@
           "type": "category",
           "settings": {
             "collection": "erasers",
-            "custom_image": "shopify://shop_images/erasers.png",
             "title": "Erasers",
             "promo": "Shop now",
             "tile_shape": "normal"
