@@ -231,22 +231,22 @@
             "tile_shape": "normal"
           }
         },
-        "category_pDWNWq": {
-          "type": "category",
-          "settings": {
-            "collection": "paper",
-            "custom_image": "shopify://shop_images/papers.png",
-            "title": "Papers",
-            "promo": "Shop now",
-            "tile_shape": "wide"
-          }
-        },
         "category_F7NKdT": {
           "type": "category",
           "settings": {
             "collection": "craft-supplies",
             "custom_image": "shopify://shop_images/craft_supplies.png",
             "title": "Craft Supplies",
+            "promo": "Shop now",
+            "tile_shape": "wide"
+          }
+        },
+        "category_pDWNWq": {
+          "type": "category",
+          "settings": {
+            "collection": "paper",
+            "custom_image": "shopify://shop_images/papers.png",
+            "title": "Papers",
             "promo": "Shop now",
             "tile_shape": "normal"
           }
@@ -269,8 +269,8 @@
         "category_rfhCje",
         "banner_CaayeR",
         "category_CmH9kd",
-        "category_pDWNWq",
         "category_F7NKdT",
+        "category_pDWNWq",
         "category_YCkVDE"
       ],
       "name": "Category Showcase",
