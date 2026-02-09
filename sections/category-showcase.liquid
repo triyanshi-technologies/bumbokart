@@ -1,0 +1,337 @@
+{{ 'category-showcase.css' | asset_url | stylesheet_tag }}
+<style>
+  .category-grid {
+    --section-padding: {{ section.settings.section_padding }}px;
+    --grid-gap: {{ section.settings.grid_gap }}px;
+
+    --tile-bg: {{ section.settings.tile_background }};
+    --tile-border-color: {{ section.settings.tile_border_color }};
+    --tile-border-width: {{ section.settings.tile_border_width }}px;
+    --tile-radius: {{ section.settings.tile_border_radius }}px;
+    --tile-padding-mobile: {{ section.settings.tile_padding }}px;
+
+    --title-size: {{ section.settings.title_font_size }}px;
+    --promo-size: {{ section.settings.promo_font_size }}px;
+
+    --title-color-mobile: {{ section.settings.title_color_mobile }};
+    --title-color-desktop: {{ section.settings.title_color_desktop }};
+    --promo-color-mobile: {{ section.settings.promo_color_mobile }};
+    --promo-color-desktop: {{ section.settings.promo_color_desktop }};
+
+    --desktop-text-position: {{ section.settings.desktop_text_position }};
+  }
+</style>
+
+<section
+  class="category-grid"
+  data-text-pos="{{ section.settings.desktop_text_position }}"
+  {{ section.shopify_attributes }}>
+  <div class="category-grid__container">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'category' %}
+          {% if block.settings.collection != blank %}
+            <a
+              href="{{ block.settings.collection.url }}"
+              class="category-grid__tile tile--{{ block.settings.tile_shape }}"
+              {{ block.shopify_attributes }}>
+              <div class="category-grid__image-wrapper">
+                {% if block.settings.custom_image != blank %}
+                  <img
+                    src="{{ block.settings.custom_image | image_url: width: 400 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    class="category-grid__image"
+                    loading="lazy"
+                    width="400"
+                    height="400">
+                {% elsif block.settings.collection.featured_image != blank %}
+                  <img
+                    src="{{ block.settings.collection.featured_image | image_url: width: 400 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    class="category-grid__image"
+                    loading="lazy"
+                    width="400"
+                    height="400">
+                {% endif %}
+              </div>
+
+              <div class="category-grid__content">
+                <h3 class="category-grid__title">{{ block.settings.title }}</h3>
+                {% if block.settings.promo != blank %}
+                  <p class="category-grid__promo">{{ block.settings.promo }}</p>
+                {% endif %}
+              </div>
+            </a>
+          {% endif %}
+
+        {% when 'banner' %}
+          {% if block.settings.image != blank %}
+            <div class="category-grid__tile category-grid__tile--banner tile--{{ block.settings.tile_shape }}" {{ block.shopify_attributes }}>
+              {{ block.settings.image
+ | image_url: width: 800
+ | image_tag: loading: 'lazy', class: 'category-grid__center-image', alt: 'Promotional Banner'
+              }}
+            </div>
+          {% endif %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Mobile category grid",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "range",
+        "id": "section_padding",
+        "min": 0,
+        "max": 80,
+        "step": 4,
+        "unit": "px",
+        "label": "Section padding",
+        "default": 48
+      },
+      {
+        "type": "range",
+        "id": "grid_gap",
+        "min": 0,
+        "max": 24,
+        "step": 2,
+        "unit": "px",
+        "label": "Tile spacing",
+        "default": 10
+      },
+
+      {
+        "type": "header",
+        "content": "Mobile layout"
+      }, {
+        "type": "range",
+        "id": "tile_padding_mobile",
+        "min": 0,
+        "max": 20,
+        "step": 2,
+        "unit": "px",
+        "label": "Content padding",
+        "default": 8
+      }, {
+        "type": "header",
+        "content": "Category text (Mobile)"
+      }, {
+        "type": "range",
+        "id": "title_font_size_mobile",
+        "min": 10,
+        "max": 18,
+        "step": 1,
+        "unit": "px",
+        "label": "Title size",
+        "default": 14
+      }, {
+        "type": "color",
+        "id": "title_color_mobile",
+        "label": "Title color",
+        "default": "#121212"
+      }, {
+        "type": "range",
+        "id": "promo_font_size_mobile",
+        "min": 10,
+        "max": 16,
+        "step": 1,
+        "unit": "px",
+        "label": "Promo text size",
+        "default": 12
+      }, {
+        "type": "color",
+        "id": "promo_color_mobile",
+        "label": "Promo text color",
+        "default": "#666666"
+      }, {
+        "type": "header",
+        "content": "Category text (Desktop)"
+      }, {
+        "type": "range",
+        "id": "title_font_size_desktop",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Title size",
+        "default": 16
+      }, {
+        "type": "color",
+        "id": "title_color_desktop",
+        "label": "Title color",
+        "default": "#121212"
+      }, {
+        "type": "range",
+        "id": "promo_font_size_desktop",
+        "min": 10,
+        "max": 18,
+        "step": 1,
+        "unit": "px",
+        "label": "Promo text size",
+        "default": 14
+      }, {
+        "type": "color",
+        "id": "promo_color_desktop",
+        "label": "Promo text color",
+        "default": "#666666"
+      }, {
+        "type": "select",
+        "id": "desktop_text_position",
+        "label": "Text position (Desktop)",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "top-center",
+            "label": "Top center"
+          },
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          }, {
+            "value": "bottom-center",
+            "label": "Bottom center"
+          }, {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          }
+        ],
+        "default": "bottom-left"
+      }, {
+        "type": "header",
+        "content": "Tile style"
+      }, {
+        "type": "color",
+        "id": "tile_background",
+        "label": "Background",
+        "default": "#ffffff"
+      }, {
+        "type": "color",
+        "id": "tile_border_color",
+        "label": "Border color",
+        "default": "#e8e8e8"
+      }, {
+        "type": "range",
+        "id": "tile_border_width",
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "unit": "px",
+        "label": "Border width",
+        "default": 1
+      }, {
+        "type": "range",
+        "id": "tile_border_radius",
+        "min": 0,
+        "max": 20,
+        "step": 2,
+        "unit": "px",
+        "label": "Border radius",
+        "default": 8
+      }
+    ],
+
+    "blocks": [
+      {
+        "type": "category",
+        "name": "Category tile",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "image_picker",
+            "id": "custom_image",
+            "label": "Custom image",
+            "info": "Overrides collection featured image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Category name",
+            "default": "Category"
+          },
+          {
+            "type": "text",
+            "id": "promo",
+            "label": "Promotional text",
+            "default": "Shop now"
+          }, {
+            "type": "select",
+            "id": "tile_shape",
+            "label": "Tile shape (Desktop)",
+            "options": [
+              {
+                "value": "normal",
+                "label": "Normal (1×1)"
+              }, {
+                "value": "wide",
+                "label": "Wide (2×1)"
+              }, {
+                "value": "tall",
+                "label": "Tall (1×2)"
+              }, {
+                "value": "big",
+                "label": "Big (2×2)"
+              }
+            ],
+            "default": "normal"
+          }
+        ]
+      }, {
+        "type": "banner",
+        "name": "Banner tile",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Banner image"
+          }, {
+            "type": "select",
+            "id": "tile_shape",
+            "label": "Tile shape (Desktop)",
+            "options": [
+              {
+                "value": "normal",
+                "label": "Normal (1×1)"
+              }, {
+                "value": "wide",
+                "label": "Wide (2×1)"
+              }, {
+                "value": "tall",
+                "label": "Tall (1×2)"
+              }, {
+                "value": "big",
+                "label": "Big (2×2)"
+              }
+            ],
+            "default": "big"
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Category Showcase"
+      }
+    ]
+  }
+{% endschema %}
