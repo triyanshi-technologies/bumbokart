@@ -289,8 +289,8 @@
         "promo_color_desktop": "#666666",
         "desktop_text_position": "bottom-left",
         "tile_background": "#ffffff",
-        "tile_border_color": "#e8e8e8",
-        "tile_border_width": 1,
+        "tile_border_color": "#666666",
+        "tile_border_width": 2,
         "tile_border_radius": 8
       }
     },
