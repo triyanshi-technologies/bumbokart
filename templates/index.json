@@ -179,6 +179,7 @@
           "type": "category",
           "settings": {
             "collection": "all-pens",
+            "custom_image": "shopify://shop_images/pens.png",
             "title": "Pens",
             "promo": "Shop now",
             "tile_shape": "normal"
@@ -198,6 +199,7 @@
           "type": "category",
           "settings": {
             "collection": "cases-pouches",
+            "custom_image": "shopify://shop_images/cases_pouches.png",
             "title": "Cases & Pouches",
             "promo": "Shop now",
             "tile_shape": "tall"
@@ -207,6 +209,7 @@
           "type": "category",
           "settings": {
             "collection": "all-highlighters",
+            "custom_image": "shopify://shop_images/highlighters.png",
             "title": "Highlighters",
             "promo": "Shop now",
             "tile_shape": "normal"
