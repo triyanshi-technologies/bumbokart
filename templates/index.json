@@ -172,6 +172,128 @@
         "padding_bottom": 36
       }
     },
+    "category_showcase_xmWDti": {
+      "type": "category-showcase",
+      "blocks": {
+        "category_Bdf8n9": {
+          "type": "category",
+          "settings": {
+            "collection": "all-pens",
+            "custom_image": "shopify://shop_images/pens.png",
+            "title": "Pens",
+            "promo": "Shop now",
+            "tile_shape": "normal"
+          }
+        },
+        "category_RYVyKL": {
+          "type": "category",
+          "settings": {
+            "collection": "all-pencils",
+            "custom_image": "shopify://shop_images/pencils.png",
+            "title": "Pencils",
+            "promo": "Shop now",
+            "tile_shape": "wide"
+          }
+        },
+        "category_P4MnVR": {
+          "type": "category",
+          "settings": {
+            "collection": "cases-pouches",
+            "custom_image": "shopify://shop_images/cases_pouches.png",
+            "title": "Cases & Pouches",
+            "promo": "Shop now",
+            "tile_shape": "tall"
+          }
+        },
+        "category_rfhCje": {
+          "type": "category",
+          "settings": {
+            "collection": "all-highlighters",
+            "custom_image": "shopify://shop_images/highlighters.png",
+            "title": "Highlighters",
+            "promo": "Shop now",
+            "tile_shape": "normal"
+          }
+        },
+        "banner_CaayeR": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/banner_image.png",
+            "tile_shape": "normal"
+          }
+        },
+        "category_CmH9kd": {
+          "type": "category",
+          "settings": {
+            "collection": "memo-sticky-notes",
+            "custom_image": "shopify://shop_images/sticky-notes.png",
+            "title": "sticky Notes",
+            "promo": "Shop now",
+            "tile_shape": "normal"
+          }
+        },
+        "category_pDWNWq": {
+          "type": "category",
+          "settings": {
+            "collection": "paper",
+            "custom_image": "shopify://shop_images/papers.png",
+            "title": "Papers",
+            "promo": "Shop now",
+            "tile_shape": "wide"
+          }
+        },
+        "category_F7NKdT": {
+          "type": "category",
+          "settings": {
+            "collection": "craft-supplies",
+            "custom_image": "shopify://shop_images/craft_supplies.jpg",
+            "title": "Craft Supplies",
+            "promo": "Shop now",
+            "tile_shape": "normal"
+          }
+        },
+        "category_YCkVDE": {
+          "type": "category",
+          "settings": {
+            "collection": "erasers",
+            "custom_image": "shopify://shop_images/erasers.png",
+            "title": "Erasers",
+            "promo": "Shop now",
+            "tile_shape": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "category_Bdf8n9",
+        "category_RYVyKL",
+        "category_P4MnVR",
+        "category_rfhCje",
+        "banner_CaayeR",
+        "category_CmH9kd",
+        "category_pDWNWq",
+        "category_F7NKdT",
+        "category_YCkVDE"
+      ],
+      "name": "Category Showcase",
+      "settings": {
+        "section_padding": 48,
+        "grid_gap": 10,
+        "tile_padding_mobile": 8,
+        "title_font_size_mobile": 14,
+        "title_color_mobile": "#121212",
+        "promo_font_size_mobile": 12,
+        "promo_color_mobile": "#666666",
+        "title_font_size_desktop": 16,
+        "title_color_desktop": "#121212",
+        "promo_font_size_desktop": 14,
+        "promo_color_desktop": "#666666",
+        "desktop_text_position": "bottom-left",
+        "tile_background": "#ffffff",
+        "tile_border_color": "#e8e8e8",
+        "tile_border_width": 1,
+        "tile_border_radius": 8
+      }
+    },
     "collection_list_QHPgHY": {
       "type": "collection-list",
       "blocks": {
@@ -687,6 +809,7 @@
     "161c6ea9-9f01-4412-af40-fb209e610050",
     "rich_text",
     "collection_list_AicNCy",
+    "category_showcase_xmWDti",
     "collection_list_QHPgHY",
     "collection_list_yhyPpt",
     "collection_list_74ywWg",
