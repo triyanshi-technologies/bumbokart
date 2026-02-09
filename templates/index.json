@@ -225,7 +225,7 @@
           "type": "category",
           "settings": {
             "collection": "memo-sticky-notes",
-            "custom_image": "shopify://shop_images/sticky-notes.png",
+            "custom_image": "shopify://shop_images/sticky_notes.png",
             "title": "Sticky Notes",
             "promo": "Shop now",
             "tile_shape": "normal"
