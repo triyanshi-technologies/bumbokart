@@ -1,0 +1,148 @@
+{% comment %}
+  Ribbon Marquee Section
+{% endcomment %}
+
+<style>
+  .ribbon-marquee {
+    background: {{ section.settings.bg_color }};
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ribbon-marquee__track {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
+    animation: ribbon-marquee {{ section.settings.speed }}s linear infinite;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .ribbon-marquee__item {
+    font-size: {{ section.settings.font_size }}px;
+    color: {{ section.settings.text_color }};
+    padding: {{ section.settings.padding_y }}px {{ section.settings.padding_x }}px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  {% if section.settings.pause_on_hover %}
+      .ribbon-marquee:hover .ribbon-marquee__track { animation-play-state: paused; }
+  {% endif %}
+
+  @keyframes ribbon-marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-33.333%, 0, 0);
+    }
+  }
+
+  @media (max-width: 749px) {
+    .ribbon-marquee__item {
+      font-size: {{ section.settings.font_size | minus: 2 }}px;
+    }
+  }
+</style>
+
+<div class="ribbon-marquee">
+  <div class="ribbon-marquee__track">
+    {% for i in (1..3) %}
+      {% for block in section.blocks %}
+        <div class="ribbon-marquee__item">
+          {{ block.settings.text }}
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ribbon Marquee",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#6b3b2a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Marquee speed (seconds)",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 6,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_x",
+      "label": "Horizontal spacing",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause marquee on hover",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Ribbon text",
+          "default": "Fast Delivery"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Ribbon Marquee",
+      "blocks": [
+        { "type": "text" },
+        { "type": "text", "settings": { "text": "Bulk Order" } },
+        { "type": "text", "settings": { "text": "7 Days Return Policy" } },
+        { "type": "text", "settings": { "text": "PAN India Delivery" } },
+        { "type": "text", "settings": { "text": "Premium Quality" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
