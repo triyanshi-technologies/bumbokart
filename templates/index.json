@@ -199,7 +199,6 @@
           "type": "category",
           "settings": {
             "collection": "cases-pouches",
-            "custom_image": "shopify://shop_images/cases_pouches.png",
             "title": "Cases & Pouches",
             "promo": "Shop now",
             "tile_shape": "tall"
