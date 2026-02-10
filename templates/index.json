@@ -181,7 +181,7 @@
             "collection": "all-pens",
             "custom_image": "shopify://shop_images/pens.png",
             "title": "Pens",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹75",
             "tile_shape": "normal"
           }
         },
@@ -191,7 +191,7 @@
             "collection": "all-pencils",
             "custom_image": "shopify://shop_images/pencils.png",
             "title": "Pencils",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹90",
             "tile_shape": "wide"
           }
         },
@@ -201,7 +201,7 @@
             "collection": "cases-pouches",
             "custom_image": "shopify://shop_images/cases_pouches.png",
             "title": "Cases & Pouches",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹800",
             "tile_shape": "tall"
           }
         },
@@ -211,7 +211,7 @@
             "collection": "all-highlighters",
             "custom_image": "shopify://shop_images/highlighters.png",
             "title": "Highlighters",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹85",
             "tile_shape": "normal"
           }
         },
@@ -228,7 +228,7 @@
             "collection": "memo-sticky-notes",
             "custom_image": "shopify://shop_images/sticky_notes.png",
             "title": "Sticky Notes",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹140",
             "tile_shape": "normal"
           }
         },
@@ -238,7 +238,7 @@
             "collection": "craft-supplies",
             "custom_image": "shopify://shop_images/craft_supplies.png",
             "title": "Craft Supplies",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹90",
             "tile_shape": "wide"
           }
         },
@@ -248,7 +248,7 @@
             "collection": "paper",
             "custom_image": "shopify://shop_images/papers.png",
             "title": "Papers",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹140",
             "tile_shape": "normal"
           }
         },
@@ -258,7 +258,7 @@
             "collection": "erasers",
             "custom_image": "shopify://shop_images/erasers.png",
             "title": "Erasers",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹65",
             "tile_shape": "normal"
           }
         }
