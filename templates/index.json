@@ -181,7 +181,7 @@
             "collection": "all-pens",
             "custom_image": "shopify://shop_images/pens.png",
             "title": "Pens",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹75",
             "tile_shape": "normal"
           }
         },
@@ -191,7 +191,7 @@
             "collection": "all-pencils",
             "custom_image": "shopify://shop_images/pencils.png",
             "title": "Pencils",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹90",
             "tile_shape": "wide"
           }
         },
@@ -201,7 +201,7 @@
             "collection": "cases-pouches",
             "custom_image": "shopify://shop_images/cases_pouches.png",
             "title": "Cases & Pouches",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹800",
             "tile_shape": "tall"
           }
         },
@@ -211,7 +211,7 @@
             "collection": "all-highlighters",
             "custom_image": "shopify://shop_images/highlighters.png",
             "title": "Highlighters",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹85",
             "tile_shape": "normal"
           }
         },
@@ -226,10 +226,20 @@
           "type": "category",
           "settings": {
             "collection": "memo-sticky-notes",
-            "custom_image": "shopify://shop_images/sticky-notes.png",
-            "title": "sticky Notes",
-            "promo": "Shop now",
+            "custom_image": "shopify://shop_images/sticky_notes.png",
+            "title": "Sticky Notes",
+            "promo": "STARTS AT ₹140",
             "tile_shape": "normal"
+          }
+        },
+        "category_F7NKdT": {
+          "type": "category",
+          "settings": {
+            "collection": "craft-supplies",
+            "custom_image": "shopify://shop_images/craft_supplies.png",
+            "title": "Craft Supplies",
+            "promo": "STARTS AT ₹90",
+            "tile_shape": "wide"
           }
         },
         "category_pDWNWq": {
@@ -238,17 +248,7 @@
             "collection": "paper",
             "custom_image": "shopify://shop_images/papers.png",
             "title": "Papers",
-            "promo": "Shop now",
-            "tile_shape": "wide"
-          }
-        },
-        "category_F7NKdT": {
-          "type": "category",
-          "settings": {
-            "collection": "craft-supplies",
-            "custom_image": "shopify://shop_images/craft_supplies.jpg",
-            "title": "Craft Supplies",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹140",
             "tile_shape": "normal"
           }
         },
@@ -258,7 +258,7 @@
             "collection": "erasers",
             "custom_image": "shopify://shop_images/erasers.png",
             "title": "Erasers",
-            "promo": "Shop now",
+            "promo": "STARTS AT ₹65",
             "tile_shape": "normal"
           }
         }
@@ -270,8 +270,8 @@
         "category_rfhCje",
         "banner_CaayeR",
         "category_CmH9kd",
-        "category_pDWNWq",
         "category_F7NKdT",
+        "category_pDWNWq",
         "category_YCkVDE"
       ],
       "name": "Category Showcase",
@@ -279,17 +279,17 @@
         "section_padding": 12,
         "grid_gap": 6,
         "tile_padding_mobile": 8,
-        "title_font_size_mobile": 12,
+        "title_font_size_mobile": 13,
         "title_color_mobile": "#121212",
         "promo_font_size_mobile": 12,
-        "promo_color_mobile": "#666666",
+        "promo_color_mobile": "#038037",
         "title_font_size_desktop": 16,
         "title_color_desktop": "#121212",
         "promo_font_size_desktop": 14,
-        "promo_color_desktop": "#666666",
+        "promo_color_desktop": "#038037",
         "desktop_text_position": "bottom-center",
         "tile_background": "#ffffff",
-        "tile_border_color": "#666666",
+        "tile_border_color": "#038037",
         "tile_border_width": 2,
         "tile_border_radius": 8
       }
