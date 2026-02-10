@@ -73,7 +73,6 @@
 }
 
 .category-grid__content {
-  padding: var(--tile-padding-mobile);
   text-align: center;
   flex-grow: 1;
   display: flex;
@@ -258,14 +257,14 @@
   }
 
   .category-grid__title {
-    font-size: clamp(14px, 1vw, 16px);
+    font-size: var(--title-size-desktop);
     font-weight: 600;
     letter-spacing: 0.6px;
     color: var(--title-color-desktop);
   }
 
   .category-grid__promo {
-    font-size: clamp(12px, 0.85vw, 14px);
+    font-size: var(--promo-size-desktop);
     margin-top: 2px;
     color: var(--promo-color-desktop);
   }
