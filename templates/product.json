@@ -15,7 +15,7 @@
         "vendor": {
           "type": "text",
           "settings": {
-            "text": "More From: {{ product.vendor }}",
+            "text": "<strong>More From:</strong> {{ product.vendor }}",
             "text_style": "body"
           }
         },
