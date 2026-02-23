@@ -86,19 +86,14 @@
                 {{ block.shopify_attributes }}
               >
                 {%- if block.settings.text contains product.vendor -%}
-                  {{
-                    block.settings.text
-                    | replace: product.vendor, '<a href="'
-                    | append: routes.collections_url
-                    | append: '/'
-                    | append: product.vendor
-                    | handleize
-                    | append: '">'
-                    | append: product.vendor
-                    | append: '</a>'
-                  }}
+                  {%- capture vendor_link -%}
+                    <a href="{{ routes.collections_url }}/{{ product.vendor | handleize }}">
+                      {{ product.vendor }}
+                    </a>
+                  {%- endcapture -%}
+                  {{ block.settings.text | replace: product.vendor, vendor_link }}
                 {%- else -%}
-                  {{- block.settings.text -}}
+                  {{ block.settings.text }}
                 {%- endif -%}
               </p>
 
