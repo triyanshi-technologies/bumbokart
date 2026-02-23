@@ -85,6 +85,7 @@
                 class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                 {{ block.shopify_attributes }}
               >
+                {% comment %} tt-custom-code to redirect to vendor specific collection {% endcomment %}
                 {%- if block.settings.text contains product.vendor -%}
                   {%- capture vendor_link -%}
                     <a href="{{ routes.collections_url }}/{{ product.vendor | handleize }}">
@@ -95,6 +96,7 @@
                 {%- else -%}
                   {{ block.settings.text }}
                 {%- endif -%}
+                {% comment %} tt-custom-code to redirect to vendor specific collection {% endcomment %}
               </p>
 
             {%- when 'title' -%}
