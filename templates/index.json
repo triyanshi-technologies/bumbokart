@@ -508,7 +508,7 @@
         "button_text": "View All",
         "show_product_count": true,
         "columns_mobile": "1",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "swipe_on_mobile": true,
         "enable_desktop_slider": true
       }
