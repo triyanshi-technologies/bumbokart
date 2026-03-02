@@ -430,6 +430,88 @@
         "padding_bottom": 36
       }
     },
+    "custom_collection_list_FTixdV": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "collection_card_Wi8ejm": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "below-99",
+            "category": "",
+            "description": "",
+            "card_bg": "#ffffff",
+            "button_color": "#afd769",
+            "button_font_color": "#121212"
+          }
+        },
+        "collection_card_tcAHhP": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "below-199",
+            "category": "",
+            "description": "",
+            "card_bg": "#ffffff",
+            "button_color": "#afd769",
+            "button_font_color": "#121212"
+          }
+        },
+        "collection_card_E4CJqk": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "under-299",
+            "category": "",
+            "description": "",
+            "card_bg": "#ffffff",
+            "button_color": "#afd769",
+            "button_font_color": "#121212"
+          }
+        },
+        "collection_card_Kz3fwW": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "under-499",
+            "category": "",
+            "description": "",
+            "card_bg": "#ffffff",
+            "button_color": "#afd769",
+            "button_font_color": "#121212"
+          }
+        },
+        "collection_card_9CNdqj": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "under-999",
+            "category": "",
+            "description": "",
+            "card_bg": "#ffffff",
+            "button_color": "#afd769",
+            "button_font_color": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_Wi8ejm",
+        "collection_card_tcAHhP",
+        "collection_card_E4CJqk",
+        "collection_card_Kz3fwW",
+        "collection_card_9CNdqj"
+      ],
+      "name": "Custom Collection List",
+      "settings": {
+        "heading": "Shop by Category",
+        "heading_color": "#121212",
+        "arrow_color": "#1f1f1f",
+        "arrow_bg_color": "#afd769",
+        "card_border_radius": 0,
+        "button_border_radius": 10,
+        "button_text": "View All",
+        "show_product_count": false,
+        "columns_mobile": "1",
+        "columns_desktop": 4,
+        "swipe_on_mobile": true,
+        "enable_desktop_slider": true
+      }
+    },
     "video": {
       "type": "video",
       "disabled": true,
@@ -812,6 +894,7 @@
     "collection_list_QHPgHY",
     "collection_list_yhyPpt",
     "collection_list_74ywWg",
+    "custom_collection_list_FTixdV",
     "video",
     "273bf9f4-b68c-450e-9557-dc300a8aafeb",
     "16964099018b871c8e",
