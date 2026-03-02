@@ -407,7 +407,7 @@
         "columns_mobile": "1",
         "columns_desktop": 4,
         "swipe_on_mobile": true,
-        "enable_desktop_slider": false
+        "enable_desktop_slider": true
       }
     },
     "collection_list_yhyPpt": {
