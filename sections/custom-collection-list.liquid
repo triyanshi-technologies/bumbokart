@@ -1,9 +1,14 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'custom-collection-list.css' | asset_url | stylesheet_tag }}
 
-<section class="collection-grid section-{{ section.id }}" style="
+<section
+  id="CollectionGrid-{{ section.id }}"
+  class="collection-grid section-{{ section.id }}"
+  data-autoscroll-delay="{{ section.settings.auto_scroll_delay }}"
+  style="
     --arrow-color: {{ section.settings.arrow_color }};
     --arrow-bg: {{ section.settings.arrow_bg_color }};
+    --title-overlay-color: {{ section.settings.title_overlay_color }};
   ">
   {%- liquid
     assign columns_mobile_int = section.settings.columns_mobile | plus: 0
@@ -66,6 +71,7 @@
         {% for block in section.blocks %}
           {% assign collection = block.settings.collection %}
           {% if collection != blank %}
+            {% assign card_title = block.settings.category | default: collection.title %}
             <li
               id="Slide-{{ section.id }}-{{ forloop.index }}"
               class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}"
@@ -89,13 +95,17 @@
                   {% else %}
                     {{ 'collection-apparel-1' | placeholder_svg_tag: 'collection-card__image collection-card__image--placeholder' }}
                   {% endif %}
+
+                  {% if card_title != blank %}
+                    <div class="collection-card__title-overlay collection-card__title-overlay--{{ section.settings.title_overlay_position }}">
+                      <h3 class="collection-card__title collection-card__title--overlay">
+                        {{ card_title }}
+                      </h3>
+                    </div>
+                  {% endif %}
                 </div>
 
                 <div class="collection-card__content">
-                  <h3 class="collection-card__title">
-                    {{ block.settings.category | default: collection.title }}
-                  </h3>
-
                   {% if block.settings.description != blank %}
                     <p class="collection-card__description">{{ block.settings.description }}</p>
                   {% endif %}
@@ -144,6 +154,94 @@
   </div>
 </section>
 
+{% if section.settings.enable_auto_scroll and show_slider_controls %}
+  <script>
+    (() => {
+      const section = document.getElementById('CollectionGrid-{{ section.id }}');
+      if (!section || section.dataset.autoscrollInitialized === 'true') return;
+      section.dataset.autoscrollInitialized = 'true';
+
+      const sliderComponent = section.querySelector('.collection-grid__slider-component');
+      const slider = section.querySelector('#Slider-{{ section.id }}');
+      const nextButton = section.querySelector('.slider-button--next');
+
+      if (!sliderComponent || !slider || !nextButton) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const delaySeconds = Number(section.dataset.autoscrollDelay);
+      const delayMs = Number.isFinite(delaySeconds) ? Math.max(2, delaySeconds) * 1000 : 4000;
+      let intervalId = null;
+
+      const canAutoScroll = () => {
+        if (document.hidden) return false;
+        if (slider.scrollWidth <= slider.clientWidth + 2) return false;
+        return window.getComputedStyle(nextButton).display !== 'none';
+      };
+
+      const advanceSlide = () => {
+        if (!canAutoScroll()) return;
+        if (nextButton.hasAttribute('disabled')) {
+          slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          nextButton.click();
+        }
+      };
+
+      const startAutoScroll = () => {
+        if (intervalId || !canAutoScroll()) return;
+        intervalId = window.setInterval(advanceSlide, delayMs);
+      };
+
+      const stopAutoScroll = () => {
+        if (!intervalId) return;
+        window.clearInterval(intervalId);
+        intervalId = null;
+      };
+
+      const onMouseEnter = () => stopAutoScroll();
+      const onMouseLeave = () => startAutoScroll();
+      const onFocusIn = () => stopAutoScroll();
+      const onFocusOut = () => startAutoScroll();
+      const onTouchStart = () => stopAutoScroll();
+      const onVisibilityChange = () => {
+        if (document.hidden) {
+          stopAutoScroll();
+        } else {
+          startAutoScroll();
+        }
+      };
+      const onResize = () => {
+        stopAutoScroll();
+        startAutoScroll();
+      };
+      const onSectionUnload = (event) => {
+        if (event.detail.sectionId != '{{ section.id }}') return;
+
+        stopAutoScroll();
+        sliderComponent.removeEventListener('mouseenter', onMouseEnter);
+        sliderComponent.removeEventListener('mouseleave', onMouseLeave);
+        sliderComponent.removeEventListener('focusin', onFocusIn);
+        sliderComponent.removeEventListener('focusout', onFocusOut);
+        sliderComponent.removeEventListener('touchstart', onTouchStart);
+        document.removeEventListener('visibilitychange', onVisibilityChange);
+        window.removeEventListener('resize', onResize);
+        document.removeEventListener('shopify:section:unload', onSectionUnload);
+      };
+
+      sliderComponent.addEventListener('mouseenter', onMouseEnter);
+      sliderComponent.addEventListener('mouseleave', onMouseLeave);
+      sliderComponent.addEventListener('focusin', onFocusIn);
+      sliderComponent.addEventListener('focusout', onFocusOut);
+      sliderComponent.addEventListener('touchstart', onTouchStart, { passive: true });
+      document.addEventListener('visibilitychange', onVisibilityChange);
+      window.addEventListener('resize', onResize);
+      document.addEventListener('shopify:section:unload', onSectionUnload);
+
+      startAutoScroll();
+    })();
+  </script>
+{% endif %}
+
 {% schema %}
   {
     "name": "Collection Showcase",
@@ -170,6 +268,60 @@
         "type": "color",
         "id": "arrow_bg_color",
         "label": "Arrow background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Title on image"
+      },
+      {
+        "type": "select",
+        "id": "title_overlay_position",
+        "label": "Collection name position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "top-center",
+            "label": "Top center"
+          },
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "center-left",
+            "label": "Center left"
+          },
+          {
+            "value": "center-center",
+            "label": "Center center"
+          },
+          {
+            "value": "center-right",
+            "label": "Center right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          },
+          {
+            "value": "bottom-center",
+            "label": "Bottom center"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          }
+        ],
+        "default": "bottom-left"
+      },
+      {
+        "type": "color",
+        "id": "title_overlay_color",
+        "label": "Collection name color",
         "default": "#ffffff"
       }, {
         "type": "range",
@@ -231,6 +383,23 @@
         "id": "enable_desktop_slider",
         "default": false,
         "label": "Enable desktop slider"
+      }, {
+        "type": "header",
+        "content": "Auto scroll"
+      }, {
+        "type": "checkbox",
+        "id": "enable_auto_scroll",
+        "default": false,
+        "label": "Enable auto scroll"
+      }, {
+        "type": "range",
+        "id": "auto_scroll_delay",
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "unit": "s",
+        "label": "Auto scroll delay",
+        "default": 4
       }
     ],
     "blocks": [
