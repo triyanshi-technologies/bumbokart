@@ -1,10 +1,13 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'Collection-Showcase.css' | asset_url | stylesheet_tag }}
 
-<section class="collection-grid section-{{ section.id }}" style="
+<section
+  class="collection-grid section-{{ section.id }}"
+  style="
     --arrow-color: {{ section.settings.arrow_color }};
     --arrow-bg: {{ section.settings.arrow_bg_color }};
-  ">
+  "
+>
   {%- liquid
     assign columns_mobile_int = section.settings.columns_mobile | plus: 0
     assign columns_desktop_int = section.settings.columns_desktop | plus: 0
@@ -57,14 +60,16 @@
           --desktop-columns: {{ columns_desktop_int }};
           --desktop-columns-static: {{ desktop_columns_static }};
           --mobile-columns: {{ columns_mobile_int }};
-        ">
+        "
+      >
         {% for block in section.blocks %}
           {% assign collection = block.settings.collection %}
           {% if collection != blank %}
             <li
               id="Slide-{{ section.id }}-{{ forloop.index }}"
               class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}"
-              {{ block.shopify_attributes }}>
+              {{ block.shopify_attributes }}
+            >
               <div class="collection-card" style="
                   --card-bg: {{ block.settings.card_bg }};
                   --btn-bg: {{ block.settings.button_color }};
@@ -116,7 +121,8 @@
             class="slider-button slider-button--prev"
             name="previous"
             aria-label="{{ 'general.slider.previous_slide' | t }}"
-            aria-controls="Slider-{{ section.id }}">
+            aria-controls="Slider-{{ section.id }}"
+          >
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
@@ -126,7 +132,8 @@
             class="slider-button slider-button--next"
             name="next"
             aria-label="{{ 'general.slider.next_slide' | t }}"
-            aria-controls="Slider-{{ section.id }}">
+            aria-controls="Slider-{{ section.id }}"
+          >
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
@@ -164,7 +171,8 @@
         "id": "arrow_bg_color",
         "label": "Arrow background",
         "default": "#ffffff"
-      }, {
+      },
+      {
         "type": "range",
         "id": "card_border_radius",
         "min": 0,
@@ -173,7 +181,8 @@
         "unit": "px",
         "label": "Card border radius",
         "default": 12
-      }, {
+      },
+      {
         "type": "range",
         "id": "button_border_radius",
         "min": 0,
@@ -182,17 +191,20 @@
         "unit": "px",
         "label": "Button border radius",
         "default": 6
-      }, {
+      },
+      {
         "type": "inline_richtext",
         "id": "button_text",
         "label": "Button text",
         "default": "View All"
-      }, {
+      },
+      {
         "type": "checkbox",
         "id": "show_product_count",
         "label": "Show product count",
         "default": true
-      }, {
+      },
+      {
         "type": "select",
         "id": "columns_mobile",
         "label": "Mobile columns",
@@ -200,13 +212,15 @@
           {
             "value": "1",
             "label": "1"
-          }, {
+          },
+          {
             "value": "2",
             "label": "2"
           }
         ],
         "default": "1"
-      }, {
+      },
+      {
         "type": "range",
         "id": "columns_desktop",
         "min": 2,
@@ -214,12 +228,14 @@
         "step": 1,
         "default": 4,
         "label": "Desktop columns"
-      }, {
+      },
+      {
         "type": "checkbox",
         "id": "swipe_on_mobile",
         "default": true,
         "label": "Enable swipe on mobile"
-      }, {
+      },
+      {
         "type": "checkbox",
         "id": "enable_desktop_slider",
         "default": false,
@@ -250,17 +266,20 @@
             "type": "image_picker",
             "id": "custom_image",
             "label": "Custom Image For Collection"
-          }, {
+          },
+          {
             "type": "color",
             "id": "card_bg",
             "label": "Card Background",
             "default": "#ffffff"
-          }, {
+          },
+          {
             "type": "color",
             "id": "button_color",
             "label": "Button Color",
             "default": "#dc3545"
-          }, {
+          },
+          {
             "type": "color",
             "id": "button_font_color",
             "label": "Button font color",
@@ -275,11 +294,14 @@
         "blocks": [
           {
             "type": "collection_card"
-          }, {
+          },
+          {
             "type": "collection_card"
-          }, {
+          },
+          {
             "type": "collection_card"
-          }, {
+          },
+          {
             "type": "collection_card"
           }
         ]
